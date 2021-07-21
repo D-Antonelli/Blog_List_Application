@@ -1,0 +1,9 @@
+POST http://localhost:3001/api/blogs
+Content-Type: application/json
+
+{
+    "title": "Configuring WordPress as a headless CMS with Next.js",
+    "author": "Rob Kendal",
+    "url": "dev.to/kendalmintcode/configuring-wordpress-as-a-headless-cms-with-next-js",
+    "likes": 74
+}
