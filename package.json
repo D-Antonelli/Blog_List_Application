@@ -4,10 +4,10 @@
   "description": "full stack part4 project",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon ./index.js localhost 3001",
-    "test": "jest --verbose",
-    "lint": "eslint ." 
+    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon ./index.js localhost 3001",
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand",
+    "lint": "eslint ."
   },
   "author": "Derya Antonelli",
   "license": "MIT",
@@ -19,9 +19,11 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "eslint": "^7.2.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
-    "jest": "^27.0.6"
+    "jest": "^27.0.6",
+    "supertest": "^6.1.4"
   }
 }
