@@ -1,15 +1,13 @@
 const dummy = (blogs) => 1;
 
-const totalLikes = (blogs) =>
-  blogs.reduce((accu, current) => accu + current.likes, 0);
+const totalLikes = (blogs) => blogs.reduce((accu, current) => accu + current.likes, 0);
 
-const favoriteBlog = (blogs) =>
-  blogs.reduce((max, current) => {
-    if (current.likes > max.likes) {
-      return current;
-    }
-    return max;
-  });
+const favoriteBlog = (blogs) => blogs.reduce((max, current) => {
+  if (current.likes > max.likes) {
+    return current;
+  }
+  return max;
+});
 
 const mostBlogs = (blogs) => {
   const authors = blogs.reduce((array, current) => {
