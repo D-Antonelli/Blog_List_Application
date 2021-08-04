@@ -1,7 +1,13 @@
 const mongoose = require('mongoose');
 const supertest = require('supertest');
+const request = require('supertest');
 const app = require('../app');
 const Blog = require('../models/blog');
+
+/**
+ * TODO
+ * 4.11*: Blog list tests, step4
+ */
 
 const initialBlogs = [
   {
@@ -38,6 +44,28 @@ test('all notes are returned in JSON format', async () => {
     .get('/api/blogs')
     .expect(200)
     .expect('Content-Type', /application\/json/);
+});
+
+test('id property exists in all posts', async () => {
+  const response = await api.get('/api/blogs');
+  response.body.forEach((blog) => expect(blog.id).toBeDefined());
+});
+
+test('sends a new post successfully', async () => {
+  const blog = {
+    title: 'How to make a reverse advent calendar',
+    author: 'Miss',
+    url: 'https://www.miss-thrifty.co.uk/how-to-make-a-reverse-advent-calendar/',
+    likes: 15,
+  };
+  try {
+    const count = await Blog.countDocuments({});
+    await request(app).post('/api/blogs').send(blog);
+    const newCount = await Blog.countDocuments({});
+    expect(newCount).toBe(count + 1);
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 afterAll(() => {
