@@ -1,0 +1,9 @@
+PUT http://localhost:3001/api/blogs/610bb0e8d165be0520f7ef6a HTTP/1.1
+Content-Type: application/json
+
+{
+"title": "How to make a reverse advent calendar",
+"author": "Miss Thrifty",
+"url": "https://www.miss-thrifty.co.uk/how-to-make-a-reverse-advent-calendar/",
+"likes": 1000
+}
