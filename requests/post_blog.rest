@@ -5,5 +5,5 @@ Content-Type: application/json
     "title": "How to make a reverse advent calendar",
     "author": "Miss Thrifty",
     "url": "https://www.miss-thrifty.co.uk/how-to-make-a-reverse-advent-calendar/",
-    "likes": 7
+    "likes": 5
   }

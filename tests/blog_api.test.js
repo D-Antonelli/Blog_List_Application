@@ -3,10 +3,11 @@ const supertest = require('supertest');
 const request = require('supertest');
 const app = require('../app');
 const Blog = require('../models/blog');
+const logger = require('../utils/logger');
 
 /**
  * TODO
- * 4.11*: Blog list tests, step4
+ * Refactoring tests
  */
 
 const initialBlogs = [
@@ -66,6 +67,31 @@ test('sends a new post successfully', async () => {
   } catch (err) {
     console.log(err);
   }
+});
+
+test('request without likes defaults to zero', async () => {
+  const req = {
+    title: 'How to make a reverse advent calendar',
+    author: 'Miss',
+    url: 'https://www.miss-thrifty.co.uk/how-to-make-a-reverse-advent-calendar/',
+  };
+
+  try {
+    const response = await request(app).post('/api/blogs').send(req);
+    logger.info(response.body);
+    expect(response.body.likes).toBe(0);
+  } catch (err) {
+    console.log('Error is ', err);
+  }
+}, 100000);
+
+test.only('missing title and url props results in 400 bad request', async () => {
+  const blog = {
+    author: 'Miss',
+    likes: 15,
+  };
+
+  await request(app).post('/api/blogs').send(blog).expect(400);
 });
 
 afterAll(() => {
