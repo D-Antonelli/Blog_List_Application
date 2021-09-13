@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const config = require('./utils/config');
 const blogsRouter = require('./controllers/blogs');
+const usersRouter = require('./controllers/users');
 const logger = require('./utils/logger');
 
 logger.info('connecting to ', config.MONGODB_URI);
@@ -22,5 +23,6 @@ app.use(morgan('tiny'));
 morgan.token('data', (req) => JSON.stringify(req.body));
 app.use(morgan(':data'));
 app.use('/api/blogs', blogsRouter);
+app.use('/api/users', usersRouter);
 
 module.exports = app;
