@@ -33,12 +33,12 @@ usersRouter.post('/', async (request, response) => {
       passwordHash,
     };
     const user = new User(newUser);
-    const error = user.validateSync();
     try {
+      user.validateSync();
       const result = await user.save();
       response.status(201).json(result);
     } catch (err) {
-      response.status(400).json(error.errors);
+      response.status(400).json(err);
     }
   }
 });
