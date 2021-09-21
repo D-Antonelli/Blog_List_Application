@@ -85,7 +85,7 @@ test('request without likes defaults to zero', async () => {
   }
 }, 100000);
 
-test.only('missing title and url props results in 400 bad request', async () => {
+test('missing title and url props results in 400 bad request', async () => {
   const blog = {
     author: 'Miss',
     likes: 15,
