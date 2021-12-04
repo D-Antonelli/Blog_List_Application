@@ -9,9 +9,7 @@ usersRouter.get('/', async (request, response) => {
 });
 
 /**
- * TODO: 4.16*: bloglist expansion, step4
- * USERNAME MUST BE UNIQUE
- * ADD SUITABLE TESTS
+ * TODO: 4.18: bloglist expansion, step5
  */
 
 usersRouter.post('/', async (request, response) => {
