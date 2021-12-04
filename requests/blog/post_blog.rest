@@ -2,8 +2,8 @@ POST http://localhost:3001/api/blogs
 Content-Type: application/json
 
   {
-    "title": "How to make a reverse advent calendar",
-    "author": "Miss Thrifty",
+    "title": "How to be kind to people with disabilities",
+    "author": "Sam Johnsons",
     "url": "https://www.miss-thrifty.co.uk/how-to-make-a-reverse-advent-calendar/",
-    "likes": 5
+    "likes": 10
   }
