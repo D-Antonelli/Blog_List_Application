@@ -1,9 +1,10 @@
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkRheWxpZ2h0IiwiaWQiOiI2MWI3YWZjNGExNTMzYjBlODBlZmMxMjgiLCJpYXQiOjE2Mzk0MjgwNjF9.ZPUGcaoo_6uN_kl53gxzl1Q3RNUqS4yPQ1pjdfqSLaQ
 
   {
-    "title": "How to be kind to people with disabilities",
-    "author": "Sam Johnsons",
-    "url": "https://www.miss-thrifty.co.uk/how-to-make-a-reverse-advent-calendar/",
-    "likes": 10
+    "title": "How to turn on the lights",
+    "author": "Day Light",
+    "url": "https://www.daylight.com/",
+    "likes": 2
   }
