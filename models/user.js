@@ -10,6 +10,12 @@ const userSchema = new mongoose.Schema({
     minLength: [3, 'Error: Min 3 caharacters'],
     unique: true,
   },
+  blogs: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Blog',
+    },
+  ],
   passwordHash: String,
   name: String,
 });

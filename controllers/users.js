@@ -4,13 +4,13 @@ const User = require('../models/user');
 const logger = require('../utils/logger');
 
 usersRouter.get('/', async (request, response) => {
-  const users = await User.find({});
+  const users = await User.find({}).populate('blogs', {
+    title: 1,
+    author: 1,
+    url: 1,
+  });
   response.json(users);
 });
-
-/**
- * TODO: 4.18: bloglist expansion, step5
- */
 
 usersRouter.post('/', async (request, response) => {
   const { body } = request;
@@ -29,6 +29,7 @@ usersRouter.post('/', async (request, response) => {
       username: body.username,
       name: body.name,
       passwordHash,
+      blogs: [],
     };
     const user = new User(newUser);
     try {
