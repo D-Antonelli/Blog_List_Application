@@ -3,8 +3,10 @@ const getTokenFrom = (request, response, next) => {
   if (authorization && authorization.toLowerCase().startsWith('bearer ')) {
     const token = authorization.substring(7);
     request.token = token;
+    next();
+  } else {
+    response.status(403);
   }
-  return null;
 };
 
 module.exports = getTokenFrom;
