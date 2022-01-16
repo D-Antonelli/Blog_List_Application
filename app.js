@@ -7,6 +7,7 @@ const blogsRouter = require('./controllers/blogs');
 const usersRouter = require('./controllers/users');
 const loginRouter = require('./controllers/login');
 const logger = require('./utils/logger');
+const getTokenFrom = require('./utils/middleware');
 
 logger.info('connecting to ', config.MONGODB_URI);
 
@@ -23,6 +24,7 @@ app.use(cors());
 app.use(morgan('tiny'));
 morgan.token('data', (req) => JSON.stringify(req.body));
 app.use(morgan(':data'));
+app.use(getTokenFrom);
 app.use('/api/blogs', blogsRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/login', loginRouter);
